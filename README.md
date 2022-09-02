@@ -1,4 +1,4 @@
-# Selenium Practise
+# Selenium Code Snippet
 
 # WebDriver Initialization
 
