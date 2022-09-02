@@ -46,8 +46,64 @@ WebDriver driver = new SafariDriver();
 
 ```
 
-# Operation on drop down
+# Element Locators
 
+
+1. **Find element By ID**
+
+```java
+driver.findElement(By.id("Id Value"));
+
+```
+
+2. **Find element By Name**
+
+```java
+driver.findElement(By.name("Name Value"));
+
+```
+
+3. **Find element By Class Name**
+
+```java
+driver.findElement(By.className("Class Name Value"));
+
+```
+
+4. **Find element By Link text**
+
+```java
+driver.findElement(By.linkText("Link text Value"));
+
+```
+
+5. **Find element By Partial Link text**
+
+```java
+driver.findElement(By.partialLinkText("Partial Text Constant Value"));
+
+```
+
+6. **Find element By Tag name**
+
+```java
+driver.findElement(By.tagName("Tag Name Value"));
+
+```
+
+7. **Find element By CSS Selector**
+
+```java
+driver.findElement(By.cssSelector("CSS Value"));
+
+```
+
+8. **Find element By XPath**
+
+```java
+driver.findElement(By.xpath("Xpath Value"));
+
+```
 
 
 
