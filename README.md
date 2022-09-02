@@ -29,3 +29,27 @@ System.setProperty("webdriver.ie.driver","path to iedriver.exe");
 WebDriver driver=new InternetExplorerDriver();
 
 ```
+
+4. **Edge Driver Initialization**
+
+```java
+System.setProperty("webdriver.edge.driver", "path to edgedriver.exe");
+WebDriver driver = new EdgeDriver();
+
+```
+
+5. **Safari Driver Initialization**
+
+```java
+System.setProperty("webdriver.safari.driver","path to safaridriver.exe")
+WebDriver driver = new SafariDriver();
+
+```
+
+
+
+
+
+
+
+
