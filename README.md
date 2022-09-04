@@ -106,6 +106,98 @@ driver.findElement(By.xpath("Xpath Value"));
 ```
 
 
+# Operation on Dropdown
+
+1. **Select Dropdown option by Index**
+	```java
+	
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select dropdown = new Select(element);
+	dropdown.selectByIndex(Index);
+	
+	```
+	
+2. **Select Dropdown option by visible Text**	
+	```java
+	
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select dropdown = new Select(element);
+	dropdown.selectByVisibleText("text");
+	
+	```
+
+3. **Select Dropdown option by value**
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select dropdown = new Select(element);
+	dropdown.SelectByValue("value");
+ 
+	```
+
+4. **Deselect all selected options of dropdown**
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select dropdown = new Select(element);
+	dropdown.deselectAll();
+ 
+	```	
+	
+5. **Deselect Dropdown option by Index**
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select dropdown = new Select(element);
+	dropdown.deselectByIndex(Index);
+ 
+	```	
+
+6. **Deselect Dropdown option by visible Text**	
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select dropdown = new Select(element);
+	dropdown.deselectByVisibleText("text");
+ 
+	```	
+
+7. **Deselect Dropdown option by value**
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select dropdown = new Select(element);
+	dropdown.deselectByValue("value");
+ 
+	```	
+
+8. **List of all options in the dropdown**
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select dropdown = new Select(element);
+	List<WebElement> options = dropdown.getOptions();
+ 
+	```	
+	
+9. **Get selected option in the dropdown**
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select dropdown = new Select(element);
+	String option = dropdown.getFirstSelectedOption();
+ 
+	```	
+	
+	
+10. **Vefify Dropdown allows selection of multiple items.**	
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select dropdown = new Select(element);
+	boolean isMultiple = dropdown.isMultiple();
+ 
+	```	
 
 
 
