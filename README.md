@@ -199,5 +199,26 @@ driver.findElement(By.xpath("Xpath Value"));
  
 	```	
 
+# Operation on Browser
 
+1. **Get Page Title**
+	```java
+	
+	String pageTitle = driver.getTitle();
+	
+	```
+	
+2. **Get Current URL**	
+	```java
+	
+	String currentURL = getCurrentUrl();
+	
+	```
+	
+3. 	**Get Page Source**	
+	```java
+	
+	String currentPageSource = driver.getPageSource();
+	
+	```
 
