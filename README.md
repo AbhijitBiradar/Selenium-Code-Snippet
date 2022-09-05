@@ -211,7 +211,7 @@ driver.findElement(By.xpath("Xpath Value"));
 2. **Get Current URL**	
 	```java
 	
-	String currentURL = getCurrentUrl();
+	String currentURL = driver.getCurrentUrl();
 	
 	```
 	
@@ -222,3 +222,69 @@ driver.findElement(By.xpath("Xpath Value"));
 	
 	```
 
+	
+# Navigation Operation
+
+1. **Navigate to page**
+	```java
+	
+	driver.get("https://www.facebook.com/");
+	
+	```	
+	
+2. 	**Maxmize browser window**
+
+	```java
+	
+	driver.manage().window().maximize();
+	
+	```	
+	
+3. 	**Fullscreen browser window**
+
+
+	```java
+	
+	driver.navigate().to("https://www.google.com/");
+	
+	```	
+	
+4. 	**Navigate Back**
+
+	```java
+	
+	driver.navigate().back();
+	
+	```
+
+5. 	**Navigate Forward**
+
+	```java
+	
+	driver.navigate().forward();
+	
+	```
+	
+6. 	**Refresh webpage**	
+
+	```java
+	
+	driver.navigate().refresh();
+	
+	```
+	
+7. 	**Close Current browser**
+
+	```java
+	
+	driver.close();
+	
+	```
+	
+8. 	**Close all browsers**
+
+	```java
+	
+	driver.quit();
+	
+	```	
