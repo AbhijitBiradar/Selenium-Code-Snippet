@@ -1,4 +1,4 @@
-# Selenium Code Snippet
+# Selenium Code Snippet / Selenium Cheatsheet
 
 # WebDriver Initialization
 
@@ -331,5 +331,54 @@ driver.findElement(By.xpath("Xpath Value"));
 	
 	Alert alert = driver.switchTo().alert();
 	alert.sendKeys(“text");
+	
+	```		
+
+# Cookie Operation
+
+1. **Add Cookie**
+	```java
+	
+	 driver.manage().addCookie(new Cookie("key", "value"));;
+	
+	```	
+	
+2. **Get Named Cookie**
+
+	```java	
+	
+	Cookie cookie1 = driver.manage().getCookieNamed("foo");
+	
+	```	
+	
+3. **Get All Cookies**
+
+	```java
+	
+	Set<Cookie> cookies = driver.manage().getCookies();
+    System.out.println(cookies);
+	
+	```	
+	
+4. **Delete Cookie**
+
+	```java
+	
+	// delete a cookie with name 'test1'
+	driver.manage().deleteCookieNamed("test1");
+
+	/*
+	 Selenium Java bindings also provides a way to delete
+	 cookie by passing cookie object of current browsing context
+	 */
+	driver.manage().deleteCookie(cookie1);
+	
+	```		
+	
+4. **Delete All Cookies**
+
+	```java
+	
+	driver.manage().deleteAllCookies();
 	
 	```		
