@@ -382,3 +382,48 @@ driver.findElement(By.xpath("Xpath Value"));
 	driver.manage().deleteAllCookies();
 	
 	```		
+
+
+# Frame Operation
+
+1. **Switch to frame using a WebElement**
+	```java
+	
+	 //Store the web element
+	WebElement iframe = driver.findElement(By.cssSelector("#modal>iframe"));
+
+	//Switch to the frame
+	driver.switchTo().frame(iframe);
+	
+	```	
+	
+2. **Switch to frame using a name or ID**
+
+	```java	
+	
+	//Using the ID
+	driver.switchTo().frame("buttonframe");
+
+	//Or using the name instead
+	driver.switchTo().frame("myframe");
+	
+	```	
+	
+3. **Switch to frame using an index**
+
+	```java
+	
+	// Switches to the second frame
+	driver.switchTo().frame(1);
+	
+	```	
+	
+4. **Leaving a frame**
+
+	```java
+	
+	// Return to the top level
+	driver.switchTo().defaultContent();
+	
+	```		
+	
