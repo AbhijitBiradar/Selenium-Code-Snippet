@@ -288,3 +288,48 @@ driver.findElement(By.xpath("Xpath Value"));
 	driver.quit();
 	
 	```	
+
+# Alert Operation
+
+1. **Switch to Alert**
+	```java
+	
+	Alert alert = driver.switchTo().alert();
+	
+	```	
+	
+2. **Accept Alert**
+
+	```java
+	
+	Alert alert = driver.switchTo().alert();
+	alert.accept();
+	
+	```	
+	
+3. **Dismiss Alert**
+
+	```java
+	
+	Alert alert = driver.switchTo().alert();
+	alert.dismiss();
+	
+	```	
+	
+4. **Get Alert text **
+
+	```java
+	
+	Alert alert = driver.switchTo().alert();
+	String text=alert.getText();
+	
+	```		
+	
+4. **Enter text into alert **
+
+	```java
+	
+	Alert alert = driver.switchTo().alert();
+	alert.sendKeys(“text");
+	
+	```		
