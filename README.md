@@ -575,3 +575,24 @@ driver.findElement(By.xpath("Xpath Value"));
 	
 	
 # JavaScript Operation	
+
+
+# Window Handle Operation	
+
+
+# Selenium Timeouts
+
+
+# AutoIt
+
+
+# Selenium GRID
+
+
+# Advanced Browser Cnfiguration
+
+
+# Desired Capabilities
+
+
+
