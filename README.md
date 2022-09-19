@@ -445,7 +445,7 @@ driver.findElement(By.xpath("Xpath Value"));
 	
 	```	
 	
-# Action Class Keyboard Operation	
+# Action Class Keyboard & Mouse Operation	
 
 1. **Sendkeys**
 	```java
@@ -563,4 +563,15 @@ driver.findElement(By.xpath("Xpath Value"));
 	
 	```		
 	
+11. **ClickAndHold**
+	```java	
 	
+     Actions actions = new Actions(driver);  
+	 WebElement titleC = driver.findElement(By.xpath("//li[text()= 'C']")); 
+     actions.moveToElement(titleC); 
+     actions.clickAndHold().perform(); 
+	
+	```	
+	
+	
+# JavaScript Operation	
