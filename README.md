@@ -579,11 +579,18 @@ driver.findElement(By.xpath("Xpath Value"));
 Refer this
 
 https://www.lambdatest.com/blog/how-to-use-javascriptexecutor-in-selenium-webdriver/
+
 https://www.browserstack.com/guide/javascriptexecutor-in-selenium
+
 https://www.softwaretestingmaterial.com/javascriptexecutor-selenium-webdriver/
+
 https://www.toolsqa.com/selenium-webdriver/javascript-and-selenium-javascriptexecutor/
+
 https://www.swtestacademy.com/javascriptexecutor-in-selenium/
+
 https://ultimateqa.com/7-extremely-useful-selenium-javascript-commands/
+
+
 
 # Window Handle Operation	
 
