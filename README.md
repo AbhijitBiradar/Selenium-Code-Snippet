@@ -722,6 +722,45 @@ js.executeScript("var btn=document.createElement('newButton');" + "document.body
 ```
 
 
+15. **To get innertext of the entire webpage in Selenium**
+
+ ```java 
+
+JavascriptExecutor js = (JavascriptExecutor) driver;  
+String sText =  js.executeScript("return document.documentElement.innerText;").toString();
+System.out.println(sText);
+
+```
+
+16. **To click on a SubMenu which is only visible on mouse hover on Menu**
+
+ ```java 
+
+JavascriptExecutor js = (JavascriptExecutor) driver;   
+js.executeScript("$('ul.menus.menu-secondary.sf-js-enabled.sub-menu li').hover()");
+
+```
+
+
+17. **To navigate to a different page using Javascript**
+
+ ```java 
+
+JavascriptExecutor js = (JavascriptExecutor) driver;   
+js.executeScript("window.location = 'https://www.softwaretestingmaterial.com");
+
+```
+
+18. **To Type Text in a Text Box**
+
+ ```java 
+
+JavascriptExecutor js = (JavascriptExecutor) driver; 
+js.executeScript("document.getElementById('some id').value='someValue';");
+js.executeScript("document.getElementById('Email').value='SoftwareTestingMaterial.com';");
+
+```
+
 
 # Window Handle Operation	
 
