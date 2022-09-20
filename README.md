@@ -579,8 +579,129 @@ driver.findElement(By.xpath("Xpath Value"));
 
 # Window Handle Operation	
 
+1. **getWindowHandle()**
+
+ ```java 
+ 
+String mainWindowHandle = driver.getWindowHandle();
+
+```
+
+2. **getWindowHandle()**
+
+ ```java 
+ 
+Set<String> allWindowHandles = driver.getWindowHandles();
+
+```
+
+
+3. **getWindowHandle()**
+
+ ```java 
+ 
+String mainWindowHandle = driver.getWindowHandle();
+Set<String> allWindowHandles = driver.getWindowHandles();
+Iterator<String> iterator = allWindowHandles.iterator();
+
+```
+
+4. **switch to child window**
+
+ ```java 
+ 
+String mainWindowHandle = driver.getWindowHandle();
+Set<String> allWindowHandles = driver.getWindowHandles();
+Iterator<String> iterator = allWindowHandles.iterator();
+
+// Here we will check if child window has other child windows and will fetch the heading of the child window
+while (iterator.hasNext()) {
+	String ChildWindow = iterator.next();
+		if (!mainWindowHandle.equalsIgnoreCase(ChildWindow)) {
+		driver.switchTo().window(ChildWindow);
+		WebElement text = driver.findElement(By.id("sampleHeading"));
+		System.out.println("Heading of child window is " + text.getText());
+	}
+}
+
+```
+
+5. **Switch to main window**
+
+ ```java 
+ 
+String mainWindowHandle = driver.getWindowHandle();
+driver.switchTo().window(mainwindow);
+
+```
+
+
 
 # Selenium Timeouts
+
+1. **Implicitly Wait**
+
+ ```java 
+ 
+System.setProperty("webdriver.chrome.driver", "Path of Chrome Driver");
+WebDriver driver = new ChromeDriver();
+driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
+```
+
+
+2. **setScriptTimeout()**
+
+ ```java 
+ 
+System.setProperty("webdriver.chrome.driver", "Path of Chrome Driver");
+WebDriver driver = new ChromeDriver();
+driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
+
+```
+
+3. **pageLoadTimeout in Selenium**
+
+ ```java 
+ 
+System.setProperty("webdriver.chrome.driver", "Path of Chrome Driver");
+WebDriver driver = new ChromeDriver();
+driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+
+```
+
+4. **Explicit Wait in Selenium**
+
+ ```java 
+ 
+System.setProperty("webdriver.chrome.driver", "Path of Chrome Driver");
+WebDriver driver = new ChromeDriver();
+
+WebDriverWait wait = new WebDriverWait(driver,30);
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'COMPOSE')]")));
+
+```
+
+
+4. **Fluent Wait in Selenium**
+
+ ```java 
+ 
+System.setProperty("webdriver.chrome.driver", "Path of Chrome Driver");
+WebDriver driver = new ChromeDriver();
+
+Wait wait = new FluentWait(WebDriver reference)
+.withTimeout(timeout, SECONDS)
+.pollingEvery(timeout, SECONDS)
+.ignoring(Exception.class);
+
+WebElement foo=wait.until(new Function<WebDriver, WebElement>() {
+	public WebElement applyy(WebDriver driver) {
+	return driver.findElement(By.id("foo"));
+	}
+});
+
+```
 
 
 # AutoIt
