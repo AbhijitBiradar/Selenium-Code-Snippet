@@ -576,19 +576,150 @@ driver.findElement(By.xpath("Xpath Value"));
 	
 # JavaScript Operation	
 
-Refer this
+1. **To Click on a Button**
 
-https://www.lambdatest.com/blog/how-to-use-javascriptexecutor-in-selenium-webdriver/
+ ```java 
+ 
+JavascriptExecutor js = (JavascriptExecutor) driver;  
+js.executeScript("document.getElementById('enter element id').click();");
 
-https://www.browserstack.com/guide/javascriptexecutor-in-selenium
+//or
 
-https://www.softwaretestingmaterial.com/javascriptexecutor-selenium-webdriver/
+js.executeScript("arguments[0].click();", okButton);
 
-https://www.toolsqa.com/selenium-webdriver/javascript-and-selenium-javascriptexecutor/
+```
 
-https://www.swtestacademy.com/javascriptexecutor-in-selenium/
+2. **To Type Text in a Text Box without using sendKeys() method**
 
-https://ultimateqa.com/7-extremely-useful-selenium-javascript-commands/
+ ```java 
+ 
+JavascriptExecutor js = (JavascriptExecutor) driver;  
+js.executeScript("document.getElementById(id').value='someValue';");
+js.executeScript("document.getElementById('Email').value='SeleniumTesting.com';");
+
+```
+
+3. **To Handle Checkbox by passing the value as true or false**
+
+ ```java 
+ 
+JavascriptExecutor js = (JavascriptExecutor) driver;  
+js.executeScript("document.getElementById('enter element id').checked=false;");
+
+```
+
+4. **To generate Alert Pop window in Selenium Webdriver**
+
+ ```java 
+ 
+JavascriptExecutor js = (JavascriptExecutor) driver;  
+js.executeScript("alert('Welcome To Selenium Testing');");
+
+```
+
+5. **To refresh browser window using Javascript**
+
+ ```java 
+ 
+JavascriptExecutor js = (JavascriptExecutor) driver;  
+js.executeScript("history.go(0)");
+
+```
+
+6. **To get the innertext of the entire webpage in Selenium**
+
+ ```java 
+ 
+JavascriptExecutor js = (JavascriptExecutor) driver;  
+String innerText = js.executeScript(" return document.documentElement.innerText;").toString();
+System.out.println(innerText);
+
+```
+
+7. **To get the Title of our webpage**
+
+ ```java 
+ 
+JavascriptExecutor js = (JavascriptExecutor) driver;  
+String titleText =  js.executeScript("return document.title;").toString();
+System.out.println(titleText);
+
+```
+
+8. **To get the domain name**
+
+ ```java 
+ 
+JavascriptExecutor js = (JavascriptExecutor) driver;  
+String domainName=  js.executeScript("return document.domain;").toString();
+System.out.println(domainName);
+
+```
+
+9. **To get the URL of a webpage**
+
+ ```java 
+ 
+JavascriptExecutor js = (JavascriptExecutor) driver;  
+String url=  js.executeScript("return document.URL;").toString();
+System.out.println(url);
+
+```
+
+9. **To get the Height and Width of a web page**
+
+ ```java 
+ 
+JavascriptExecutor js = (JavascriptExecutor) driver;  
+js.executeScript(“return window.innerHeight;”).toString();
+js.executeScript(“return window.innerWidth;”).toString();
+
+```
+
+10. **To find a hidden element in selenium using JavaScriptExecutor**
+
+ ```java 
+
+JavascriptExecutor js = (JavascriptExecutor) driver;  
+js.executeScript("arguments[0].click();", element);
+
+```
+
+11. **To navigate to a different page using Javascript**
+
+ ```java 
+
+JavascriptExecutor js = (JavascriptExecutor) driver;  
+js.executeScript("window.location = 'https://www.lambdatest.com");
+
+```
+
+12. **To perform Scroll on an application using Selenium - To scroll the page vertically for 500px**
+
+ ```java 
+
+JavascriptExecutor js = (JavascriptExecutor) driver;  
+js.executeScript(“window.scrollBy(0,500)”);
+
+```
+
+13. **To perform Scroll on an application using Selenium - To scroll the page vertically till the end**
+
+ ```java 
+
+JavascriptExecutor js = (JavascriptExecutor) driver;  
+js.executeScript(“window.scrollBy(0,document.body.scrollHeight)”);
+
+```
+
+14. **Adding an element in DOM**
+
+ ```java 
+
+JavascriptExecutor js = (JavascriptExecutor) driver;  
+js.executeScript("var btn=document.createElement('newButton');" + "document.body.appendChild(btn);");
+
+```
 
 
 
