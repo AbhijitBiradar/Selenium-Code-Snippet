@@ -894,6 +894,27 @@ WebElement foo=wait.until(new Function<WebDriver, WebElement>() {
 
 # Selenium GRID
 
+ ```java 
+
+DesiredCapabilities dr=null;
+if(browserType.equals("firefox")){
+	dr=DesiredCapabilities.firefox();
+	dr.setBrowserName("firefox");
+	dr.setPlatform(Platform.WINDOWS);
+
+}else{
+	dr=DesiredCapabilities.internetExplorer();
+	dr.setBrowserName("iexplore");
+	dr.setPlatform(Platform.WINDOWS);
+}
+	 
+RemoteWebDriver driver=new RemoteWebDriver(new    URL("http://localhost:4444/wd/hub"), dr);
+driver.navigate().to("http://gmail.com");
+driver.findElement(By.xpath("//input[@id='Email']")) .sendKeys("username");
+driver.findElement(By.xpath("//input[@id='Passwd']")) .sendKeys("password");
+driver.close();
+
+```
 
 # Advanced Browser Cnfiguration
 
