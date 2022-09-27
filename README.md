@@ -105,6 +105,29 @@ driver.findElement(By.xpath("Xpath Value"));
 
 ```
 
+# Label
+
+# TextBox
+
+# Frame
+
+# Window
+
+# Table (Static and Dynamic Table)
+
+# radio button
+
+# Checkbox
+
+# Wait Conditions
+
+# Screenshot
+
+# Reports
+
+# parallel execution
+
+# Jenkins configuration
 
 # Operation on Dropdown
 
