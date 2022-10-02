@@ -220,13 +220,44 @@ String linkText = element.getText();
 
 ```
 
-# Operation on Reports
+# Operation on Table (Static and Dynamic Table)
 
-# Operation on parallel execution
+1. **Static Table**
+
+```java
+
+for(int numberOfRows=1; numberOfRows<=5; numberOfRows++){
+	for(int numberOfCol=1; numberOfCol <=3; numberOfCol++){
+		System.out.println(driver.findElement(By.xpath(“//div[@id='main']/table[1]/tbody/tr[“+numberOfRows+”]/th[“+numberOfCol+”]”)));
+	}
+}
+
+```
+
+2. **Dynamic Table**
+
+```java
+
+WebElement htmltable=driver.findElement(By.xpath("//*[@id='main']/table[1]/tbody"));
+List<WebElement> rows=htmltable.findElements(By.tagName("tr"));
+ 
+for(int rnum=0;rnum<rows.size();rnum++){
+	List<WebElement> columns=rows.get(rnum).findElements(By.tagName("th"));
+	System.out.println("Number of columns:"+columns.size());
+	 
+	for(int cnum=0;cnum<columns.size();cnum++){
+		System.out.println(columns.get(cnum).getText());
+	}
+}
+
+```
+
+
+# Operation on Reports
 
 # Operation on Jenkins configuration
 
-# Operation on Table (Static and Dynamic Table)
+
 
 
 # Operation on Dropdown
