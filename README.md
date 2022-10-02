@@ -253,11 +253,126 @@ for(int rnum=0;rnum<rows.size();rnum++){
 ```
 
 
-# Operation on Reports
+# Operation on Extent Report
+
+
+```java
+ 
+public class DemoTest {
+ 
+    ExtentHtmlReporter htmlReporter;
+ 
+    ExtentReports extent;
+    //helps to generate the logs in the test report.
+    ExtentTest test;
+ 
+    @BeforeTest
+    public void startReport() {
+        // initialize the HtmlReporter
+        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") +"/test-output/testReport.html");
+ 
+        //initialize ExtentReports and attach the HtmlReporter
+        extent = new ExtentReports();
+        extent.attachReporter(htmlReporter);
+ 
+ 
+        //configuration items to change the look and feel
+        //add content, manage tests etc
+        htmlReporter.config().setChartVisibilityOnOpen(true);
+        htmlReporter.config().setDocumentTitle("Simple Automation Report");
+        htmlReporter.config().setReportName("Test Report");
+        htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
+        htmlReporter.config().setTheme(Theme.STANDARD);
+        htmlReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
+    }
+ 
+    @Test
+    public void test_1() {
+        test = extent.createTest("Test Case 1", "The test case 1 has passed");
+        Assert.assertTrue(true);
+    }
+ 
+ 
+    @Test
+    public void test_2() {
+        test = extent.createTest("Test Case 2", "The test case 2 has failed");
+        Assert.assertTrue(false);
+    }
+ 
+    @Test
+    public void test_3() {
+        test = extent.createTest("Test Case 3", "The test case 3 has been skipped");
+        throw new SkipException("The test has been skipped");
+    }
+ 
+    @AfterMethod
+    public void getResult(ITestResult result) {
+        if(result.getStatus() == ITestResult.FAILURE) {
+            test.log(Status.FAIL,result.getThrowable());
+        }
+        else if(result.getStatus() == ITestResult.SUCCESS) {
+            test.log(Status.PASS, result.getTestName());
+        }
+        else {
+            test.log(Status.SKIP, result.getTestName());
+        }
+    }
+ 
+    @AfterTest
+    public void tearDown() {
+        //to write or update test information to reporter
+        extent.flush();
+    }
+}
+
+```
+
 
 # Operation on Jenkins configuration
 
+```java
 
+public class LoginPage {
+	
+	WebDriver driver;
+	
+	@BeforeTest
+	public void setUp() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Shalini\\Downloads\\chrom86_driver\\chromedriver.exe");
+		driver = new ChromeDriver();
+	}
+	
+	public void login() {
+		String login_url = "https://opensource-demo.orangehrmlive.com/";
+		driver.get(login_url);
+		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+		driver.findElement(By.id("txtUsername")).sendKeys("Admin");
+		driver.findElement(By.id("txtPassword")).sendKeys("admin123");
+		System.out.println(driver.getTitle());
+	}
+	
+	@Test
+	public void dashboard() {
+		
+		driver.findElement(By.id("menu_dashboard_index")).click();
+		String textPresent = driver.findElement(By.xpath("//*[@id=\"content\"]/div/div[1]/h1")).getText();
+		
+		String textToBePresent = "DashBoard";
+		assertEquals(textPresent, textToBePresent);
+	}
+	
+	
+	@AfterTest
+	public void tearDown() {
+			driver.quit();
+	}
+
+}
+
+
+```
 
 
 # Operation on Dropdown
