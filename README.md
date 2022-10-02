@@ -141,13 +141,42 @@ String attributeValue = element.getAttribute("value");
 
 ```
 
-# Operation on Frame
 
-# Operation on Window
+# Operation on Button
 
-# Operation on Table (Static and Dynamic Table)
+1. **click()**
 
-# Operation on radio button
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+element.click();
+
+```
+
+1. **submit()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+element.submit();
+
+```
+
+# Operation on Radio Button
+
+1. **click()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+element.click();
+
+```
+
+1. **isSelected()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+boolean status = element.isSelected();
+
+```
 
 # Operation on Checkbox
 
@@ -160,6 +189,13 @@ String attributeValue = element.getAttribute("value");
 # Operation on parallel execution
 
 # Operation on Jenkins configuration
+
+
+# Operation on Frame
+
+# Operation on Window
+
+# Operation on Table (Static and Dynamic Table)
 
 
 # Operation on Dropdown
