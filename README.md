@@ -200,6 +200,7 @@ element.click();
 WebElement element = driver.findElement(By.xpath("Xpath Value"));
 boolean status = element.isSelected();
 
+```
 
 # Operation on Link
 
