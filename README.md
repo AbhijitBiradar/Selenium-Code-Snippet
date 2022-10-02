@@ -1095,7 +1095,7 @@ ControlSetText($hWnd, "", "Edit1", "SomeFile.txt")
 
 ```
 
-# Selenium GRID
+# Selenium GRID (Parallel Execution)
 
  ```java 
 
