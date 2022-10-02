@@ -109,6 +109,38 @@ driver.findElement(By.xpath("Xpath Value"));
 
 # Operation on TextBox
 
+1. **sendKeys()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+element.sendKeys("abhijit");
+
+```
+
+2. **clear()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+element.clear();
+
+```
+
+3. **getText()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+String actualText = element.getText();
+
+```
+
+4. **getAttribute()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+String attributeValue = element.getAttribute("value"); 
+
+```
+
 # Operation on Frame
 
 # Operation on Window
