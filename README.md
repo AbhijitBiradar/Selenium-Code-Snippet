@@ -105,7 +105,13 @@ driver.findElement(By.xpath("Xpath Value"));
 
 ```
 
-# Operation on Label
+1. **getText()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+String label = element.getText();
+
+```
 
 # Operation on TextBox
 
@@ -180,20 +186,44 @@ boolean status = element.isSelected();
 
 # Operation on Checkbox
 
-# Operation on Wait Conditions
+1. **click()**
 
-# Operation on Screenshot
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+element.click();
+
+```
+
+1. **isSelected()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+boolean status = element.isSelected();
+
+
+# Operation on Link
+
+1. **click()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+element.click();
+
+```
+
+2. **getText()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+String linkText = element.getText();
+
+```
 
 # Operation on Reports
 
 # Operation on parallel execution
 
 # Operation on Jenkins configuration
-
-
-# Operation on Frame
-
-# Operation on Window
 
 # Operation on Table (Static and Dynamic Table)
 
