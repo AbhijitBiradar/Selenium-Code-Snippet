@@ -1596,5 +1596,25 @@ public class LoginPage {
 
 ```
 
+Solution of Stale Element Reference Exception
 
+Solution 1: Refreshing the web page
+driver.navigate().refersh();
+driver.findElement(By.xpath("xpath here")).click();
 
+Solution 2: Using Try Catch Block
+// Using for loop, it tries for 3 times.
+// If the element is located for the first time then it breaks from the for loop nad comeout of the loop
+for(int i=0; i<=2;i++){
+  try{
+     driver.findElement(By.xpath("xpath here")).click();
+     break;
+  }
+  catch(Exception e){
+     Sysout(e.getMessage());
+  }
+}
+
+Solution 3: Using ExpectedConditions.refreshed
+wait.until(ExpectedConditions.presenceOfElementLocated(By.id("table")));
+wait.until(ExpectedConditions.refreshed(ExpectedConditions.stalenessOf("table")));
