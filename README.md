@@ -147,6 +147,17 @@ String attributeValue = element.getAttribute("value");
 
 ```
 
+//is displayed
+driver.findElement(By.xpath("//input[@id='editabletext']")).isDisplayed();
+
+//is enabled
+driver.findElement(By.xpath("//input[@id='editabletext']")).isEnabled();
+
+//get default value	
+WebElement textbox = driver.findElement(By.id("gsc-i-id1"));
+String val = textbox.getAttribute("value");
+System.out.println("Default text is: " + val);	
+
 
 # Operation on Button
 
@@ -467,6 +478,122 @@ public class LoginPage {
 	boolean isMultiple = dropdown.isMultiple();
  
 	```	
+
+
+
+# Operation on ListBox
+
+1. **Select ListBox option by Index**
+	```java
+	
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select listBox = new Select(element);
+	listBox.selectByIndex(Index);
+	
+	```
+	
+2. **Select ListBox option by visible Text**	
+	```java
+	
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select listBox = new Select(element);
+	listBox.selectByVisibleText("text");
+	
+	```
+
+3. **Select ListBox option by value**
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select listBox = new Select(element);
+	listBox.SelectByValue("value");
+ 
+	```
+
+4. **Deselect all selected options of ListBox**
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select listBox = new Select(element);
+	listBox.deselectAll();
+ 
+	```	
+	
+5. **Deselect ListBox option by Index**
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select listBox = new Select(element);
+	listBox.deselectByIndex(Index);
+ 
+	```	
+
+6. **Deselect ListBox option by visible Text**	
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select listBox = new Select(element);
+	listBox.deselectByVisibleText("text");
+ 
+	```	
+
+7. **Deselect ListBox option by value**
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select listBox = new Select(element);
+	listBox.deselectByValue("value");
+ 
+	```	
+
+8. **List of all options in the ListBox**
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select listBox = new Select(element);
+	List<WebElement> options = listBox.getOptions();
+ 
+	```	
+	
+9. **Get selected option in the ListBox**
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select listBox = new Select(element);
+	String option = listBox.getFirstSelectedOption();
+ 
+	```	
+	
+	
+10. **Vefify ListBox allows selection of multiple items.**	
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select listBox = new Select(element);
+	boolean isMultiple = listBox.isMultiple();
+ 
+	```	
+	
+	
+Image
+//click on the "Facebook" logo on the upper left portion		
+driver.findElement(By.cssSelector("a[title=\"Go to Facebook home\"]")).click();	
+
+//getAttribute() to get src of image
+System.out.println("Src attribute is: "+ l.getAttribute("src"));
+	
+
+New Window
+WebDriver newWindow = driver.switchTo().newWindow(WindowType.WINDOW);
+newWindow.get("https://blog.testproject.io/");
+System.out.println(driver.getTitle());
+
+New Tab
+WebDriver newTab = driver.switchTo().newWindow(WindowType.TAB);
+newTab.get("https://testproject.io/platform/");
+System.out.println(driver.getTitle());
+
+
 
 # Operation on Browser
 
