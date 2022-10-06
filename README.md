@@ -164,6 +164,14 @@ boolean enabled= element.isEnabled();
 
 ```
 
+7. **getCssValue()**
+
+```java
+WebElement element=driver.findElement(By.xpath("Xpath Value"));
+int fontSize = element.getCssValue("font-size")
+
+```
+
 
 # Operation on Button
 
@@ -175,7 +183,7 @@ element.click();
 
 ```
 
-1. **submit()**
+2. **submit()**
 
 ```java
 WebElement element = driver.findElement(By.xpath("Xpath Value"));
@@ -193,7 +201,7 @@ element.click();
 
 ```
 
-1. **isSelected()**
+2. **isSelected()**
 
 ```java
 WebElement element = driver.findElement(By.xpath("Xpath Value"));
@@ -211,7 +219,7 @@ element.click();
 
 ```
 
-1. **isSelected()**
+2. **isSelected()**
 
 ```java
 WebElement element = driver.findElement(By.xpath("Xpath Value"));
