@@ -466,23 +466,47 @@ for(int rnum=0;rnum<rows.size();rnum++){
 	```	
 	
 	
-Image
-//click on the "Facebook" logo on the upper left portion		
-driver.findElement(By.cssSelector("a[title=\"Go to Facebook home\"]")).click();	
 
-//getAttribute() to get src of image
-System.out.println("Src attribute is: "+ l.getAttribute("src"));
+# Operation on Image
+
+1. **click()**	
+	```java
+ 
+	WebElement element =driver.findElement(By.cssSelector("a[title=\"Go to Facebook home\"]"));
+	element.click();	
+ 
+	```
+	
+2. **getAttribute()**	
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	String attriute=element.getAttribute("src");
+ 
+	```	
 	
 
-New Window
-WebDriver newWindow = driver.switchTo().newWindow(WindowType.WINDOW);
-newWindow.get("https://blog.testproject.io/");
-System.out.println(driver.getTitle());
+# New Window
 
-New Tab
-WebDriver newTab = driver.switchTo().newWindow(WindowType.TAB);
-newTab.get("https://testproject.io/platform/");
-System.out.println(driver.getTitle());
+1. **newWindow()**	
+	```java
+ 
+	WebDriver newWindow = driver.switchTo().newWindow(WindowType.WINDOW);
+	newWindow.get("https://blog.testproject.io/");
+	System.out.println(driver.getTitle());
+ 
+	```
+
+# New Tab
+
+1. **New Tab()**	
+	```java
+ 
+	WebDriver newTab = driver.switchTo().newWindow(WindowType.TAB);
+	newTab.get("https://testproject.io/platform/");
+	System.out.println(driver.getTitle());
+ 
+	```
 
 
 
@@ -1122,7 +1146,6 @@ String mainWindowHandle = driver.getWindowHandle();
 driver.switchTo().window(mainwindow);
 
 ```
-
 
 
 # Selenium Timeouts
