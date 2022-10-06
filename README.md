@@ -566,7 +566,31 @@ for(int rnum=0;rnum<rows.size();rnum++){
  
 	```	
 
+11. **Get all selected options**	
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select dropdown = new Select(element);
+	List<WebElement> selectedOptions = select.getAllSelectedOptions();
+ 
+	```	
+	
 
+12. **Select all options from dropdown**	
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select dropdown = new Select(element);
+	if (dropdown.isMultiple()) 
+		List<WebElement> options = dropdown.getOptions(); 
+		for (WebElement option : options) {   
+			option.selectByVisibleText(option.getText());
+		}
+	} else {
+			System.out.println("Dropdown don't support multiselect option");
+	}
+ 
+	```	
 
 # Operation on ListBox
 
@@ -661,7 +685,31 @@ for(int rnum=0;rnum<rows.size();rnum++){
  
 	```	
 	
+11. **Get all selected options**	
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select listBox = new Select(element);
+	List<WebElement> selectedOptions = select.getAllSelectedOptions();
+ 
+	```	
 	
+
+12. **Select all options from listBox**	
+	```java
+ 
+	WebElement element =driver.findElement(By.Id("Country"));
+	Select listBox = new Select(element);
+	if (listBox.isMultiple()) 
+		List<WebElement> options = listBox.getOptions(); 
+		for (WebElement option : options) {   
+			option.selectByVisibleText(option.getText());
+		}
+	} else {
+			System.out.println("listBox don't support multiselect option");
+	}
+ 
+	```		
 
 # Operation on Image
 
