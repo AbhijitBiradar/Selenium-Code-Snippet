@@ -191,6 +191,55 @@ element.submit();
 
 ```
 
+3. **getText()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+String actualText = element.getText();
+
+```
+
+4. **getAttribute()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+String attributeValue = element.getAttribute("value"); 
+
+```
+
+5. **isDisplayed()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+boolean displayed = element.isDisplayed(); 
+
+```
+
+
+6. **isEnabled()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+boolean enabled= element.isEnabled(); 
+
+```
+
+2. **isSelected()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+boolean status = element.isSelected();
+
+```
+
+7. **getCssValue()**
+
+```java
+WebElement element=driver.findElement(By.xpath("Xpath Value"));
+int fontSize = element.getCssValue("font-size")
+
+```
+
 # Operation on Radio Button
 
 1. **click()**
@@ -206,6 +255,55 @@ element.click();
 ```java
 WebElement element = driver.findElement(By.xpath("Xpath Value"));
 boolean status = element.isSelected();
+
+```
+
+3. **getText()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+String actualText = element.getText();
+
+```
+
+4. **getAttribute()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+String attributeValue = element.getAttribute("value"); 
+
+```
+
+5. **isDisplayed()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+boolean displayed = element.isDisplayed(); 
+
+```
+
+
+6. **isEnabled()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+boolean enabled= element.isEnabled(); 
+
+```
+
+2. **isSelected()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+boolean status = element.isSelected();
+
+```
+
+7. **getCssValue()**
+
+```java
+WebElement element=driver.findElement(By.xpath("Xpath Value"));
+int fontSize = element.getCssValue("font-size")
 
 ```
 
@@ -227,6 +325,55 @@ boolean status = element.isSelected();
 
 ```
 
+3. **getText()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+String actualText = element.getText();
+
+```
+
+4. **getAttribute()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+String attributeValue = element.getAttribute("value"); 
+
+```
+
+5. **isDisplayed()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+boolean displayed = element.isDisplayed(); 
+
+```
+
+
+6. **isEnabled()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+boolean enabled= element.isEnabled(); 
+
+```
+
+2. **isSelected()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+boolean status = element.isSelected();
+
+```
+
+7. **getCssValue()**
+
+```java
+WebElement element=driver.findElement(By.xpath("Xpath Value"));
+int fontSize = element.getCssValue("font-size")
+
+```
+
 # Operation on Link
 
 1. **click()**
@@ -242,6 +389,55 @@ element.click();
 ```java
 WebElement element = driver.findElement(By.xpath("Xpath Value"));
 String linkText = element.getText();
+
+```
+
+3. **getText()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+String actualText = element.getText();
+
+```
+
+4. **getAttribute()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+String attributeValue = element.getAttribute("value"); 
+
+```
+
+5. **isDisplayed()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+boolean displayed = element.isDisplayed(); 
+
+```
+
+
+6. **isEnabled()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+boolean enabled= element.isEnabled(); 
+
+```
+
+2. **isSelected()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+boolean status = element.isSelected();
+
+```
+
+7. **getCssValue()**
+
+```java
+WebElement element=driver.findElement(By.xpath("Xpath Value"));
+int fontSize = element.getCssValue("font-size")
 
 ```
 
