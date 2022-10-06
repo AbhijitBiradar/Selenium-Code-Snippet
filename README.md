@@ -1756,3 +1756,94 @@ driver.manage().addCookie(arg0);   //Create and add the cookie
 driver.manage().deleteCookie(arg0);  // Delete specific cookie
 driver.manage().deleteCookieNamed(arg0); // Delete specific cookie according Name
 driver.manage().deleteAllCookies();  // Delete all cookies
+
+
+
+
+Handle Proxy through AutoIT
+
+ProxyAuthentication.exe
+
+Send("guru99{ENTER}")
+Send("guru99{ENTER}")
+
+
+public class AutoITDemo {
+    public static void main(String[] args) throws IOException {
+        System.setProperty("webdriver.chrome.driver", "D:\\ chromedriver.exe");;
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://demo.guru99.com/test/basic_auth.php");
+        //Passing the AutoIt Script to Selenium	
+        Runtime.getRuntime().exec("D:\\Data_Personal\\ProxyAuthentication.exe");
+    }
+}
+
+
+Handle Proxy Using Alerts
+
+public class AlertsDemo {
+    public static void main(String args[]) throws IOException {
+        System.setProperty("webdriver.chrome.driver", "D:\\Data_Personal\\Software\\chromedriver_win32\\chromedriver.exe");;
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://demo.guru99.com/test/basic_auth.php");
+        // Handling Username alert
+        driver.switchTo().alert().sendKeys("guru99");
+        driver.switchTo().alert().accept();
+        // Handling Password alert
+        driver.switchTo().alert().sendKeys("guru99");
+        driver.switchTo().alert().accept();
+    }
+}
+
+
+find all the links on a Webpage in Selenium
+
+public class BrokenLinks {
+    public static void main(String[] args) {
+        System.setProperty("webdriver.chrome.driver","./src/resources/chromedriver");
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://demoqa.com/broken");
+
+        //Storing the links in a list and traversing through the links
+        List<WebElement> links = driver.findElements(By.tagName("a"));
+
+        // This line will print the number of links and the count of links.
+        System.out.println("No of links are "+ links.size());  
+      
+        //checking the links fetched.
+        for(int i=0;i<links.size();i++)
+        {
+            WebElement E1= links.get(i);
+            String url= E1.getAttribute("href");
+            verifyLinks(url);
+        }
+        
+        driver.quit();
+    }
+    
+    
+    public static void verifyLinks(String linkUrl)
+    {
+        try
+        {
+            URL url = new URL(linkUrl);
+
+            //Now we will be creating url connection and getting the response code
+            HttpURLConnection httpURLConnect=(HttpURLConnection)url.openConnection();
+            httpURLConnect.setConnectTimeout(5000);
+            httpURLConnect.connect();
+            if(httpURLConnect.getResponseCode()>=400)
+            {
+            	System.out.println(linkUrl+" - "+httpURLConnect.getResponseMessage()+"is a broken link");
+            }    
+       
+            //Fetching and Printing the response code obtained
+            else{
+                System.out.println(linkUrl+" - "+httpURLConnect.getResponseMessage());
+            }
+        }catch (Exception e) {
+      }
+   }
+}
+
