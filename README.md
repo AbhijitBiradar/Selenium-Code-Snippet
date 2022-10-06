@@ -1618,3 +1618,141 @@ for(int i=0; i<=2;i++){
 Solution 3: Using ExpectedConditions.refreshed
 wait.until(ExpectedConditions.presenceOfElementLocated(By.id("table")));
 wait.until(ExpectedConditions.refreshed(ExpectedConditions.stalenessOf("table")));
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+An Example for Ajax HANDLING
+
+public class Ajaxdemo {
+	
+	private String URL = "http://demo.guru99.com/test/ajax.html";
+	
+	WebDriver driver;
+	WebDriverWait wait;
+	
+	@BeforeClass
+	public void setUp() {
+		System.setProperty("webdriver.chrome.driver",".\\chromedriver.exe");
+		//create chrome instance
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.navigate().to(URL);
+	}
+	
+	@Test
+	public void test_AjaxExample() {
+
+		By container = By.cssSelector(".container");
+		wait = new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.presenceOfElementLocated(container));
+		
+		//Get the text before performing an ajax call
+		WebElement noTextElement = driver.findElement(By.className("radiobutton"));
+		String textBefore = noTextElement.getText().trim();
+		
+		//Click on the radio button
+		driver.findElement(By.id("yes")).click();
+	
+		//Click on Check Button
+		driver.findElement(By.id("buttoncheck")).click();
+		
+		/*Get the text after ajax call*/
+		WebElement TextElement = driver.findElement(By.className("radiobutton"));
+		wait.until(ExpectedConditions.visibilityOf(TextElement));
+		String textAfter = TextElement.getText().trim();
+		
+		/*Verify both texts before ajax call and after ajax call text.*/
+		Assert.assertNotEquals(textBefore, textAfter);
+		System.out.println("Ajax Call Performed");
+		
+		String expectedText = "Radio button is checked and it's value is Yes";
+		
+		/*Verify expected text with text updated after ajax call*/
+		Assert.assertEquals(textAfter, expectedText);
+		driver.close();
+	}
+	
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Flash Testing
+
+public class Flash {				
+    public static void main(String[] args) throws InterruptedException {								
+  	// Open firefox browser		
+	FirefoxDriver driver = new FirefoxDriver();			
+  	// Maximize browser		
+	driver.manage().window().maximize();		
+  	// Under Flash jar file there is separate FlashObjectWebDriver class		
+	FlashObjectWebDriver flashApp = new FlashObjectWebDriver(driver, "myFlashMovie");		
+  	// Pass the URL of video		
+	driver.get("http://demo.guru99.com/test/flash-testing.html");			
+	Thread.sleep(5000);		
+  	flashApp.callFlashObject("Play");			
+  	Thread.sleep(5000);		
+	flashApp.callFlashObject("StopPlay");			
+	Thread.sleep(5000);		
+	flashApp.callFlashObject("SetVariable","/:message","Flash testing using selenium Webdriver");
+    System.out.println(flashApp.callFlashObject("GetVariable","/:message"));						
+  }		
+}
+
+
+Handle SSL Certificate in Firefox browser
+
+ProfilesIni prof = new ProfilesIni()				
+FirefoxProfile ffProfile= prof.getProfile ("myProfile")
+ffProfile.setAcceptUntrustedCertificates(true) 
+ffProfile.setAssumeUntrustedCertificateIssuer(false)
+WebDriver driver = new FirefoxDriver (ffProfile)	
+
+
+
+SSL Certificate Error Handling in Chrome
+
+DesiredCapabilities handlSSLErr = DesiredCapabilities.chrome ()       
+handlSSLErr.setCapability (CapabilityType.ACCEPT_SSL_CERTS, true)
+WebDriver driver = new ChromeDriver (handlSSLErr);
+
+SSL Certificate Error Handling in IE
+
+// first method
+driver.navigate ().to ("javascript:document.getElementById('overridelink').click()");
+
+// second method
+DesiredCapabilities capabilities = new DesiredCapabilities();
+capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+System.setProperty("webdriver.ie.driver","IEDriverServer.exe");
+WebDriver driver = new InternetExplorerDriver(capabilities);
+
+
+Create a Firefox Profiles
+
+public class FirefoxProfile2{
+	public static void main(String[] args) {
+		// Create object for FirefoxProfile
+		FirefoxProfilemyprofile=newFirefoxProfile (newFile("\c:users\AppData\MozillaFirefoxProfile_name.default "));  
+		// Initialize Firefox driver    
+		WebDriver driver = new FirefoxDriver(myprofile);
+		//Maximize browser window       
+		driver.manage().window().maximize();
+		//Go to URL      
+		driver.get("http://www.google.com");
+		//Set  timeout      
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		//close firefox browser  
+		driver.close();
+	}
+}
+
+
+
+Selenium Query Commands for cookies
+
+driver.manage().getCookies();   // Return The List of all Cookies
+driver.manage().getCookieNamed(arg0);  //Return specific cookie according to name
+driver.manage().addCookie(arg0);   //Create and add the cookie
+driver.manage().deleteCookie(arg0);  // Delete specific cookie
+driver.manage().deleteCookieNamed(arg0); // Delete specific cookie according Name
+driver.manage().deleteAllCookies();  // Delete all cookies
