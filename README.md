@@ -147,16 +147,22 @@ String attributeValue = element.getAttribute("value");
 
 ```
 
-//is displayed
-driver.findElement(By.xpath("//input[@id='editabletext']")).isDisplayed();
+5. **isDisplayed()**
 
-//is enabled
-driver.findElement(By.xpath("//input[@id='editabletext']")).isEnabled();
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+boolean displayed = element.isDisplayed(); 
 
-//get default value	
-WebElement textbox = driver.findElement(By.id("gsc-i-id1"));
-String val = textbox.getAttribute("value");
-System.out.println("Default text is: " + val);	
+```
+
+
+6. **isEnabled()**
+
+```java
+WebElement element = driver.findElement(By.xpath("Xpath Value"));
+boolean enabled= element.isEnabled(); 
+
+```
 
 
 # Operation on Button
