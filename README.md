@@ -871,7 +871,7 @@ for(int rnum=0;rnum<rows.size();rnum++){
 	
 	```	
 	
-4. **Get Alert text **
+4. **Get Alert text**
 
 	```java
 	
@@ -880,7 +880,7 @@ for(int rnum=0;rnum<rows.size();rnum++){
 	
 	```		
 	
-4. **Enter text into alert **
+4. **Enter text into alert**
 
 	```java
 	
@@ -901,8 +901,10 @@ for(int rnum=0;rnum<rows.size();rnum++){
 2. **Get Named Cookie**
 
 	```java	
+	Cookie cookie1 = new Cookie("test", "selenium");
+	Cookie cookie2 = new Cookie("subject", "Java");
 	
-	Cookie cookie1 = driver.manage().getCookieNamed("foo");
+	Cookie cookie1 = driver.manage().getCookieNamed("test");
 	
 	```	
 	
@@ -911,7 +913,7 @@ for(int rnum=0;rnum<rows.size();rnum++){
 	```java
 	
 	Set<Cookie> cookies = driver.manage().getCookies();
-    System.out.println(cookies);
+    	System.out.println(cookies);
 	
 	```	
 	
@@ -919,13 +921,13 @@ for(int rnum=0;rnum<rows.size();rnum++){
 
 	```java
 	
-	// delete a cookie with name 'test1'
-	driver.manage().deleteCookieNamed("test1");
+	// Method 1
+	Cookie cookie1 = new Cookie("test", "selenium");
+	Cookie cookie2 = new Cookie("subject", "Java");
+	
+	driver.manage().deleteCookieNamed("test");
 
-	/*
-	 Selenium Java bindings also provides a way to delete
-	 cookie by passing cookie object of current browsing context
-	 */
+	// Method 2
 	driver.manage().deleteCookie(cookie1);
 	
 	```		
