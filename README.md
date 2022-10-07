@@ -732,7 +732,7 @@ for(int rnum=0;rnum<rows.size();rnum++){
 
 # New Window
 
-1. **newWindow()**	
+1. **Switch To New Window**	
 	```java
  
 	WebDriver newWindow = driver.switchTo().newWindow(WindowType.WINDOW);
@@ -743,7 +743,7 @@ for(int rnum=0;rnum<rows.size();rnum++){
 
 # New Tab
 
-1. **New Tab()**	
+1. **Switch To New Tab**	
 	```java
  
 	WebDriver newTab = driver.switchTo().newWindow(WindowType.TAB);
