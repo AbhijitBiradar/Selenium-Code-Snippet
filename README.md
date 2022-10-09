@@ -1357,23 +1357,6 @@ js.executeScript("document.getElementById('Email').value='SoftwareTestingMateria
 
 ```
 
-## Common Methods for all WebElements
-
-isDisplayed():
-boolean buttonPresence = driver.findElement(By.id(“gbqfba”)).isDisplayed();
-
-isSelected():
-boolean buttonSelected = driver.findElement(By.id(“gbqfba”)).isSelected();
-
-isEnabled():
-boolean searchIconEnabled = driver.findElement(By.id(“gbqfb”)).isEnabled();
-
-
-## Methods to get CSS Values
-
-driver.findElement(By.id(“id“)).getCssValue(“name of css attribute”);
-driver.findElement(By.id(“id“)).getCssValue(“font-size”);
-
 # Window Handle Operation	
 
 1. **getWindowHandle()**
@@ -1384,7 +1367,7 @@ String mainWindowHandle = driver.getWindowHandle();
 
 ```
 
-2. **getWindowHandle()**
+2. **getWindowHandles()**
 
  ```java 
  
@@ -1393,28 +1376,17 @@ Set<String> allWindowHandles = driver.getWindowHandles();
 ```
 
 
-3. **getWindowHandle()**
+3. **switch to child window**
 
  ```java 
  
 String mainWindowHandle = driver.getWindowHandle();
 Set<String> allWindowHandles = driver.getWindowHandles();
-Iterator<String> iterator = allWindowHandles.iterator();
+Iterator <String> iterator = allWindowHandles.iterator();
 
-```
-
-4. **switch to child window**
-
- ```java 
- 
-String mainWindowHandle = driver.getWindowHandle();
-Set<String> allWindowHandles = driver.getWindowHandles();
-Iterator<String> iterator = allWindowHandles.iterator();
-
-// Here we will check if child window has other child windows and will fetch the heading of the child window
 while (iterator.hasNext()) {
 	String ChildWindow = iterator.next();
-		if (!mainWindowHandle.equalsIgnoreCase(ChildWindow)) {
+	if (!mainWindowHandle.equalsIgnoreCase(ChildWindow)) {
 		driver.switchTo().window(ChildWindow);
 		WebElement text = driver.findElement(By.id("sampleHeading"));
 		System.out.println("Heading of child window is " + text.getText());
@@ -1428,7 +1400,18 @@ while (iterator.hasNext()) {
  ```java 
  
 String mainWindowHandle = driver.getWindowHandle();
-driver.switchTo().window(mainwindow);
+Set<String> allWindowHandles = driver.getWindowHandles();
+Iterator <String> iterator = allWindowHandles.iterator();
+
+while (iterator.hasNext()) {
+	String ChildWindow = iterator.next();
+	if (!mainWindowHandle.equalsIgnoreCase(ChildWindow)) {
+		driver.switchTo().window(ChildWindow);
+		WebElement text = driver.findElement(By.id("sampleHeading"));
+		System.out.println("Heading of child window is " + text.getText());
+	}
+}
+driver.switchTo().window(mainWindowHandle);
 
 ```
 
