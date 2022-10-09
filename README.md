@@ -1005,27 +1005,38 @@ for(int rnum=0;rnum<rows.size();rnum++){
 
 1. **Sendkeys**
 	```java	
-	 
+	WebElement element = driver.findElement(By.className("nav-input"));
+	
 	Actions action = new Actions(driver);	
-	action.sendKeys(element, "iphone").build().perform();	
-	action.sendKeys(Keys.ENTER).build().perform();
+	action.sendKeys(element, "iphone")
+		.build()
+		.perform();	
+	action.sendKeys(Keys.ENTER)
+		.build()
+		.perform();
 	
 	```	
 	
 2. **Mouse click**
-	```java	
+	```java	 
 	
-	Actions action = new Actions(driver);		
 	WebElement element = driver.findElement(By.className("nav-input"));
-	action.click(element).build().perform();
+	
+	Actions action = new Actions(driver);	
+	action.click(element)
+		.build()
+		.perform();
 	
 	```	
 
 3. **ContextClick or Right Click**
 	```java
 	WebElement element = driver.findElement(By.className("nav-input"));
+	
 	Actions action = new Actions(driver);	
-	action.contextClick(element).build().perform();
+	action.contextClick(element)
+		.build()
+		.perform();
 	
 	```		
 	
@@ -1033,8 +1044,11 @@ for(int rnum=0;rnum<rows.size();rnum++){
 	```java
 	
 	WebElement element = driver.findElement(By.className("nav-input"));
+	
 	Actions action = new Actions(driver);	
-	action.doubleClick(element).build().perform();
+	action.doubleClick(element)
+		.build()
+		.perform();
 	
 	```		
 
@@ -1043,7 +1057,9 @@ for(int rnum=0;rnum<rows.size();rnum++){
 	
 	WebElement element = driver.findElement(By.className("nav-input"));
 	Actions action = new Actions(driver);	
-	action.moveToElement(element).build().perform();
+	action.moveToElement(element)
+		.build()
+		.perform();
 	
 	```		
 	
@@ -1054,8 +1070,18 @@ for(int rnum=0;rnum<rows.size();rnum++){
 	WebElement destination = driver.findElement(By.xpath("//*[@id=\"div2\"]"));
 	
 	Actions action = new Actions(driver);	
-	action.clickAndHold(source).moveToElement(destination).release().build().perform();	
 	
+	// Method 1
+	action.clickAndHold(source)
+		.moveToElement(destination)
+		.release()
+		.build()
+		.perform();	
+		
+	// Method 2		
+	action.dragAndDrop(element1, element2)
+		.build()
+		.perform();
 	```		
 	
 7. **KeyUp & KeyDown**
@@ -1064,8 +1090,15 @@ for(int rnum=0;rnum<rows.size();rnum++){
 	WebElement element2 = driver.findElement(By.xpath("//*[@id=\"div2\"]"));
 	
 	Actions action = new Actions(driver);	
-	action.keyDown(element1,Keys.SHIFT).sendKeys("abhijit").build().perform();
-	action.keyUp(element2,Keys.SHIFT).sendKeys("biradar").build().perform();
+	action.keyDown(element1,Keys.SHIFT)
+		.sendKeys("abhijit")
+		.build()
+		.perform();
+		
+	action.keyUp(element2,Keys.SHIFT)
+		.sendKeys("biradar")
+		.build()
+		.perform();
 	
 	```			
 	
@@ -1075,9 +1108,14 @@ for(int rnum=0;rnum<rows.size();rnum++){
 	Actions action = new Actions(driver);	
 	
 	//scroll down a page
-	action.sendKeys(Keys.PAGE_DOWN).build().perform();
+	action.sendKeys(Keys.PAGE_DOWN)
+		.build()
+		.perform();
+		
 	//scroll up a page
-	action.sendKeys(Keys.PAGE_UP).build().perform();
+	action.sendKeys(Keys.PAGE_UP)
+		.build()
+		.perform();
 	
 	```		
 9. **Copy & Paste**
@@ -1085,13 +1123,26 @@ for(int rnum=0;rnum<rows.size();rnum++){
 	
 	Actions action = new Actions(driver);
 
-	action.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).build().perform();
-	action.keyDown(Keys.CONTROL).sendKeys("c").keyUp(Keys.CONTROL).build().perform();
+	action.keyDown(Keys.CONTROL)
+		.sendKeys("a")
+		.keyUp(Keys.CONTROL)
+		.build()
+		.perform();
+		
+	action.keyDown(Keys.CONTROL)
+		.sendKeys("c")
+		.keyUp(Keys.CONTROL)
+		.build()
+		.perform();
  
 	WebElement firstName = driver.findElement(By.id("firstName"));
 	userName.click();
 	
-	action.keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).build().perform();
+	action.keyDown(Keys.CONTROL)
+		.sendKeys("v")
+		.keyUp(Keys.CONTROL)
+		.build()
+		.perform();
 	
 	```			
 	
@@ -1099,7 +1150,10 @@ for(int rnum=0;rnum<rows.size();rnum++){
 	```java
 	
 	Actions action = new Actions(driver);		
-	action.keyDown(Keys.CONTROL).sendKeys(Keys.F5).build().perform();
+	action.keyDown(Keys.CONTROL)
+		.sendKeys(Keys.F5)
+		.build()
+		.perform();
 	
 	```		
 	
@@ -1109,8 +1163,9 @@ for(int rnum=0;rnum<rows.size();rnum++){
      WebElement titleC = driver.findElement(By.xpath("//li[text()= 'C']")); 
      
      Actions action = new Actions(driver);
-     actions.moveToElement(titleC); 
-     actions.clickAndHold().perform(); 
+     actions.moveToElement(titleC)
+     	.clickAndHold()
+	.perform(); 
 	
 	```	
 	
