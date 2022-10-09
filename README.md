@@ -1502,7 +1502,9 @@ WebElement foo=wait.until(new Function<WebDriver, WebElement>() {
 
 # AutoIt
 
-Auto IT Script : AutoItTest.exe
+ ```java 
+ 
+//Auto IT Script : AutoItTest.exe
 
 ; Wait 10 seconds for the Upload window to appear
 
@@ -1528,7 +1530,7 @@ ControlSetText($hWnd, "", "Edit1", "SomeFile.txt")
   
   
   
-  Main Program
+  	// Main Program
   
    ```java 
   	private static WebDriver driver = null;
