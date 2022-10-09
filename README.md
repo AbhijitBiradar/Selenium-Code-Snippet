@@ -1579,6 +1579,8 @@ driver.close();
 # Advanced Browser Configuration
 
 
+
+
 # Desired Capabilities
 
  ```java 
@@ -1618,8 +1620,11 @@ try {
 
 ```
 
+# WebDriverEventListener Interface
 
-WebDriverEventListener methods
+1. **WebDriverEventListener methods**
+
+```java 
 
 @Override
     public void afterAlertAccept(WebDriver arg0) {
@@ -1698,7 +1703,7 @@ WebDriverEventListener methods
     }
  
     
-@Override
+    @Override
     public void beforeChangeValueOf(WebElement arg0, WebDriver arg1,
             CharSequence[] arg2) {
         // TODO Auto-generated method stub
@@ -1742,7 +1747,7 @@ WebDriverEventListener methods
     }
  
     
-@Override
+    @Override
     public void beforeScript(String arg0, WebDriver arg1) {
         // TODO Auto-generated method stub
         System.out.println("Before Script");
@@ -1755,12 +1760,15 @@ WebDriverEventListener methods
     }
 
 
+```
 
 
+## AbstractWebDriverEventListener
 
-## AbstractWebDriverEventListener Methods
+1. **AbstractWebDriverEventListener Methods**
 
-public void afterChangeValueOf(WebElement arg0, WebDriver arg1,
+```java 
+    public void afterChangeValueOf(WebElement arg0, WebDriver arg1,
             CharSequence[] arg2) {
         // TODO Auto-generated method stub
         System.out.println("After value change of" +arg0);
@@ -1796,9 +1804,10 @@ public void afterChangeValueOf(WebElement arg0, WebDriver arg1,
     }
 
 
+```
+
 
 # Operation on Extent Report
-
 
 ```java
  
@@ -1918,13 +1927,19 @@ public class LoginPage {
 
 ```
 
-Solution of Stale Element Reference Exception
+# Solution of Stale Element Reference Exception
 
-Solution 1: Refreshing the web page
+**Solution 1: Refreshing the web page**
+
+```java 
 driver.navigate().refersh();
 driver.findElement(By.xpath("xpath here")).click();
 
-Solution 2: Using Try Catch Block
+```
+
+**Solution 2: Using Try Catch Block**
+
+```java 
 // Using for loop, it tries for 3 times.
 // If the element is located for the first time then it breaks from the for loop nad comeout of the loop
 for(int i=0; i<=2;i++){
@@ -1937,14 +1952,20 @@ for(int i=0; i<=2;i++){
   }
 }
 
-Solution 3: Using ExpectedConditions.refreshed
+```
+
+**Solution 3: Using ExpectedConditions.refreshed**
+
+```java 
 wait.until(ExpectedConditions.presenceOfElementLocated(By.id("table")));
 wait.until(ExpectedConditions.refreshed(ExpectedConditions.stalenessOf("table")));
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------
+```
 
-An Example for Ajax HANDLING
 
+# An Example for Ajax HANDLING
+
+```java 
 public class Ajaxdemo {
 	
 	private String URL = "http://demo.guru99.com/test/ajax.html";
@@ -1996,9 +2017,12 @@ public class Ajaxdemo {
 	
 }
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------
+```
 
-Flash Testing
+
+# Flash Testing
+
+```java 
 
 public class Flash {				
     public static void main(String[] args) throws InterruptedException {								
@@ -2020,25 +2044,34 @@ public class Flash {
   }		
 }
 
+```
 
-Handle SSL Certificate in Firefox browser
+# Handle SSL Certificate in Browser
 
+1. **Handle SSL Certificate in Firefox browser**
+
+```java 
 ProfilesIni prof = new ProfilesIni()				
 FirefoxProfile ffProfile= prof.getProfile ("myProfile")
 ffProfile.setAcceptUntrustedCertificates(true) 
 ffProfile.setAssumeUntrustedCertificateIssuer(false)
 WebDriver driver = new FirefoxDriver (ffProfile)	
 
+```
 
 
-SSL Certificate Error Handling in Chrome
+2. **SSL Certificate Error Handling in Chrome**
 
+```java 
 DesiredCapabilities handlSSLErr = DesiredCapabilities.chrome ()       
 handlSSLErr.setCapability (CapabilityType.ACCEPT_SSL_CERTS, true)
 WebDriver driver = new ChromeDriver (handlSSLErr);
 
-SSL Certificate Error Handling in IE
+```
 
+3. **SSL Certificate Error Handling in IE**
+
+```java 
 // first method
 driver.navigate ().to ("javascript:document.getElementById('overridelink').click()");
 
@@ -2048,9 +2081,13 @@ capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 System.setProperty("webdriver.ie.driver","IEDriverServer.exe");
 WebDriver driver = new InternetExplorerDriver(capabilities);
 
+```
 
-Create a Firefox Profiles
+# Create Custom Profile for Browser
 
+1. **Create a Firefox Profiles**
+
+```java
 public class FirefoxProfile2{
 	public static void main(String[] args) {
 		// Create object for FirefoxProfile
@@ -2068,22 +2105,42 @@ public class FirefoxProfile2{
 	}
 }
 
+```
 
+2. **Create a Chrome Profiles**
 
-Selenium Query Commands for cookies
+```java
+System.setProperty ("webdriver.chrome.driver","C:\\chromedriver.exe");
+ChromeOptions options = new ChromeOptions();
+options.addArguments("user-data-dir=C:/Users/user_name/AppData/Local/Google/Chrome/User Data");
+options.addArguments("--start-maximized");
+driver = new ChromeDriver(options);
+driver.get("http://www.google.com");
 
-driver.manage().getCookies();   // Return The List of all Cookies
-driver.manage().getCookieNamed(arg0);  //Return specific cookie according to name
-driver.manage().addCookie(arg0);   //Create and add the cookie
-driver.manage().deleteCookie(arg0);  // Delete specific cookie
-driver.manage().deleteCookieNamed(arg0); // Delete specific cookie according Name
-driver.manage().deleteAllCookies();  // Delete all cookies
+```
 
+3. **Create a Edge Profiles**
 
+```java
+System.setProperty("webdriver.edge.driver", "your\\path\\to\\edge\\webdriver\\msedgedriver.exe"); 
+EdgeOptions edgeOptions = new EdgeOptions();
 
+// Here you set the path of the profile ending with User Data not the profile folder
+edgeOptions.addArguments("user-data-dir=C:\\Users\\username\\AppData\\Local\\Microsoft\\Edge\\User Data");
 
-Handle Proxy through AutoIT
+// Here you specify the actual profile folder
+edgeOptions.addArguments("profile-directory=Profile 2");
 
+edgeOptions.addArguments("--start-maximized");
+WebDriver driver = new EdgeDriver(edgeOptions); 
+driver.get("https://www.google.com");
+
+```
+
+# Handle Proxy
+1. **Handle Proxy through AutoIT**
+
+```java 
 ProxyAuthentication.exe
 
 Send("guru99{ENTER}")
@@ -2100,9 +2157,11 @@ public class AutoITDemo {
     }
 }
 
+```
 
-Handle Proxy Using Alerts
+2. **Handle Proxy Using Alerts**
 
+```java 
 public class AlertsDemo {
     public static void main(String args[]) throws IOException {
         System.setProperty("webdriver.chrome.driver", "D:\\Data_Personal\\Software\\chromedriver_win32\\chromedriver.exe");;
@@ -2117,9 +2176,11 @@ public class AlertsDemo {
     }
 }
 
+```
 
-find all the links on a Webpage in Selenium
+# Broken Links
 
+```java 
 public class BrokenLinks {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver","./src/resources/chromedriver");
@@ -2169,3 +2230,4 @@ public class BrokenLinks {
    }
 }
 
+```
