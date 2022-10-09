@@ -988,14 +988,13 @@ for(int rnum=0;rnum<rows.size();rnum++){
 # Screenshot Operation
 
 1. **Capture screenshot**
-	```java
+	```java	
 	
-	//Take the screenshot
-	File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+	File sourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);	
 	
-	//Copy the file to a location and use try catch block to handle exception
 	try {
-		FileUtils.copyFile(screenshot, new File("C:\\projectScreenshots\\homePageScreenshot.png"));
+		File destinationFile=new File("C:\\projectScreenshots\\homePageScreenshot.png");
+		FileUtils.copyFile(sourceFile, destinationFile);
 	} catch (IOException e) {
 		System.out.println(e.getMessage());
 	}
