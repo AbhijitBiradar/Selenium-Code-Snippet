@@ -991,9 +991,9 @@ for(int rnum=0;rnum<rows.size();rnum++){
 	```java	
 	
 	File sourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);	
+	File destinationFile=new File("C:\\projectScreenshots\\homePageScreenshot.png");
 	
-	try {
-		File destinationFile=new File("C:\\projectScreenshots\\homePageScreenshot.png");
+	try {		
 		FileUtils.copyFile(sourceFile, destinationFile);
 	} catch (IOException e) {
 		System.out.println(e.getMessage());
@@ -1004,49 +1004,35 @@ for(int rnum=0;rnum<rows.size();rnum++){
 # Action Class Keyboard & Mouse Operation	
 
 1. **Sendkeys**
-	```java
-	
-	//create an object for the Actions class and pass the driver argument 
-	Actions action = new Actions(driver);
-	
-	//pass the product name that has to be searched in the website
-	action.sendKeys(element, "iphone").build().perform();
-	//pass the Enter value through sendKeys
+	```java	
+	 
+	Actions action = new Actions(driver);	
+	action.sendKeys(element, "iphone").build().perform();	
 	action.sendKeys(Keys.ENTER).build().perform();
 	
 	```	
 	
 2. **Mouse click**
-	```java
+	```java	
 	
-	//create an object for the Actions class and pass the driver argument 
-	Actions action = new Actions(driver);
-
-	//specify the locator of the search box in which the product has to be typed
-	WebElement elementToType = driver.findElement(By.id("twotabsearchtextbox"));
-	
-	//pass the value of the product
-	action.sendKeys(elementToType, "iphone").build().perform();
-	
-	//specify the locator of the search button
-	WebElement elementToClick = driver.findElement(By.className("nav-input"));
-
-	//perform a mouse click on the search button
-	action.click(elementToClick).build().perform();
+	Actions action = new Actions(driver);		
+	WebElement element = driver.findElement(By.className("nav-input"));
+	action.click(element).build().perform();
 	
 	```	
 
-3. **ContextClick**
+3. **ContextClick or Right Click**
 	```java
-	
+	WebElement element = driver.findElement(By.className("nav-input"));
 	Actions action = new Actions(driver);	
-	action.contextClick().build().perform();
+	action.contextClick(element).build().perform();
 	
 	```		
 	
 4. **doubleClick**
 	```java
 	
+	WebElement element = driver.findElement(By.className("nav-input"));
 	Actions action = new Actions(driver);	
 	action.doubleClick(element).build().perform();
 	
@@ -1055,46 +1041,43 @@ for(int rnum=0;rnum<rows.size();rnum++){
 5. **moveToElement**
 	```java
 	
-	Actions action = new Actions(driver);
-	//mouse hover the Resources element
+	WebElement element = driver.findElement(By.className("nav-input"));
+	Actions action = new Actions(driver);	
 	action.moveToElement(element).build().perform();
 	
 	```		
 	
 6. **dragAndDrop**
 	```java
-	
-	Actions action = new Actions(driver);		
+			
 	WebElement source = driver.findElement(By.xpath("//*[@id=\"drag1\"]"));
 	WebElement destination = driver.findElement(By.xpath("//*[@id=\"div2\"]"));
 	
+	Actions action = new Actions(driver);	
 	action.clickAndHold(source).moveToElement(destination).release().build().perform();	
 	
 	```		
 	
 7. **KeyUp & KeyDown**
 	```java
+	WebElement element1 = driver.findElement(By.xpath("//*[@id=\"drag1\"]"));
+	WebElement element2 = driver.findElement(By.xpath("//*[@id=\"div2\"]"));
 	
-	Actions action = new Actions(driver);		
-	//holds the SHIFT key and converts the text to uppercase
-	action.keyDown(element,Keys.SHIFT).sendKeys("lambdatest").build().perform();
+	Actions action = new Actions(driver);	
+	action.keyDown(element1,Keys.SHIFT).sendKeys("abhijit").build().perform();
+	action.keyUp(element2,Keys.SHIFT).sendKeys("biradar").build().perform();
 	
 	```			
 	
 8. **Scroll Up & Down the page**
 	```java
 	
-	Actions act = new Actions(driver);
-	// Scroll Down using Actions class
-	act.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();
-
-	try {
-		Thread.sleep(1000);
-	} catch (InterruptedException e) {
-		e.printStackTrace();
-	}
-	  // Scroll Up using Actions class
-	act.keyDown(Keys.CONTROL).sendKeys(Keys.HOME).perform();
+	Actions action = new Actions(driver);	
+	
+	//scroll down a page
+	action.sendKeys(Keys.PAGE_DOWN).build().perform();
+	//scroll up a page
+	action.sendKeys(Keys.PAGE_UP).build().perform();
 	
 	```		
 9. **Copy & Paste**
@@ -1102,12 +1085,13 @@ for(int rnum=0;rnum<rows.size();rnum++){
 	
 	Actions action = new Actions(driver);
 
-	action.keyDown( Keys.CONTROL ).sendKeys( "a" ).keyUp( Keys.CONTROL ).build().perform();
-	action.keyDown( Keys.CONTROL ).sendKeys( "c" ).keyUp( Keys.CONTROL ).build().perform();
+	action.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).build().perform();
+	action.keyDown(Keys.CONTROL).sendKeys("c").keyUp(Keys.CONTROL).build().perform();
  
 	WebElement firstName = driver.findElement(By.id("firstName"));
 	userName.click();
-	action.keyDown( Keys.CONTROL ).sendKeys( "v" ).keyUp( Keys.CONTROL ).build().perform();
+	
+	action.keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).build().perform();
 	
 	```			
 	
@@ -1122,8 +1106,9 @@ for(int rnum=0;rnum<rows.size();rnum++){
 11. **ClickAndHold**
 	```java	
 	
-     Actions actions = new Actions(driver);  
-	 WebElement titleC = driver.findElement(By.xpath("//li[text()= 'C']")); 
+     WebElement titleC = driver.findElement(By.xpath("//li[text()= 'C']")); 
+     
+     Actions action = new Actions(driver);
      actions.moveToElement(titleC); 
      actions.clickAndHold().perform(); 
 	
