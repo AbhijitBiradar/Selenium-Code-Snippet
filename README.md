@@ -1466,18 +1466,17 @@ wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contain
 
  ```java 
  
-System.setProperty("webdriver.chrome.driver", "Path of Chrome Driver");
-WebDriver driver = new ChromeDriver();
+// Waiting 30 seconds for an element to be present on the page, checking
+// for its presence once every 5 seconds.
+Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+	.withTimeout(Duration.ofSeconds(30))
+  	.pollingEvery(Duration.ofSeconds(5))
+  	.ignoring(NoSuchElementException.class);
 
-Wait wait = new FluentWait(WebDriver reference)
-.withTimeout(timeout, SECONDS)
-.pollingEvery(timeout, SECONDS)
-.ignoring(Exception.class);
-
-WebElement foo=wait.until(new Function<WebDriver, WebElement>() {
-	public WebElement applyy(WebDriver driver) {
-	return driver.findElement(By.id("foo"));
-	}
+WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
+	public WebElement apply(WebDriver driver) {
+    		return driver.findElement(By.id("foo"));
+  	}
 });
 
 ```
