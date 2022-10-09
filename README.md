@@ -460,15 +460,14 @@ for(int row=1; row<=5; row++){
 
 ```java
 
-WebElement htmltable=driver.findElement(By.xpath("//*[@id='main']/table[1]/tbody"));
-List<WebElement> rows=htmltable.findElements(By.tagName("tr"));
- 
-for(int rnum=0;rnum<rows.size();rnum++){
-	List<WebElement> columns=rows.get(rnum).findElements(By.tagName("th"));
-	System.out.println("Number of columns:"+columns.size());
-	 
-	for(int cnum=0;cnum<columns.size();cnum++){
-		System.out.println(columns.get(cnum).getText());
+
+WebElement table=driver.findElement(By.xpath("//*[@id='main']/table[1]/tbody"));
+List <WebElement> rows=table.findElement(By.tagName("tr"));
+
+for(int row=0; row< rows.size(); row++){
+	List <WebElement> columns = rows.get(row).findElements(By.tagName("th"));
+	for(int column =0; column < columns.size(); column++){
+		System.out.println(column.get(column).getText());
 	}
 }
 
