@@ -447,9 +447,10 @@ int fontSize = element.getCssValue("font-size")
 
 ```java
 
-for(int numberOfRows=1; numberOfRows<=5; numberOfRows++){
-	for(int numberOfCol=1; numberOfCol <=3; numberOfCol++){
-		System.out.println(driver.findElement(By.xpath(“//div[@id='main']/table[1]/tbody/tr[“+numberOfRows+”]/th[“+numberOfCol+”]”)));
+for(int row=1; row<=5; row++){
+	for(int column=1; column <=3; column++){
+		WebElement element =driver.findElement(By.xpath("//div[@id='main']/table[1]/tbody/tr[" + row + "]/th[" + column + "]"));
+		System.out.println(element.getText());
 	}
 }
 
