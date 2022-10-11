@@ -1337,26 +1337,6 @@ js.executeScript("$('ul.menus.menu-secondary.sf-js-enabled.sub-menu li').hover()
 
 ```
 
-
-17. **To navigate to a different page using Javascript**
-
- ```java 
-
-JavascriptExecutor js = (JavascriptExecutor) driver;   
-js.executeScript("window.location = 'https://www.softwaretestingmaterial.com");
-
-```
-
-18. **To Type Text in a Text Box**
-
- ```java 
-
-JavascriptExecutor js = (JavascriptExecutor) driver; 
-js.executeScript("document.getElementById('some id').value='someValue';");
-js.executeScript("document.getElementById('Email').value='SoftwareTestingMaterial.com';");
-
-```
-
 # Window Handle Operation	
 
 1. **getWindowHandle()**
